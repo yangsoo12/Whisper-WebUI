@@ -1,4 +1,5 @@
 import os
+os.environ["GRADIO_SERVER_REQUEST_BODY_SIZE"] = str(500 * 1024 * 1024)
 import argparse
 import gradio as gr
 from gradio_i18n import Translate, gettext as _
