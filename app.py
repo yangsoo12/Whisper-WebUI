@@ -108,7 +108,7 @@ class App:
                 with gr.Tabs():
                     with gr.TabItem(_("File")):  # tab1
                         with gr.Column():
-                            input_file = gr.Files(type="filepath", label=_("Upload File here"), file_types=MEDIA_EXTENSION)
+                            input_file = gr.Files(type="filepath", label=_("Upload File here"), file_types=MEDIA_EXTENSION, max_size=500 * 1024 * 1024)
                             tb_input_folder = gr.Textbox(label="Input Folder Path (Optional)",
                                                          info="Optional: Specify the folder path where the input files are located, if you prefer to use local files instead of uploading them."
                                                               " Leave this field empty if you do not wish to use a local path.",
