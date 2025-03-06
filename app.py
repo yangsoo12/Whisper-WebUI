@@ -1,6 +1,4 @@
 import os
-os.environ["GRADIO_SERVER_REQUEST_BODY_SIZE"] = "500000000"
-os.environ["GRADIO_SERVER_MAX_BODY_SIZE"] = "500000000"
 import argparse
 import gradio as gr
 from gradio_i18n import Translate, gettext as _
@@ -21,6 +19,8 @@ from modules.whisper.data_classes import *
 
 class App:
     def __init__(self, args):
+      os.environ["GRADIO_SERVER_REQUEST_BODY_SIZE"] = "500000000"
+      os.environ["GRADIO_SERVER_MAX_BODY_SIZE"] = "500000000"
         self.args = args
         self.app = gr.Blocks(css=CSS, theme=self.args.theme, delete_cache=(60, 3600))
         self.whisper_inf = WhisperFactory.create_whisper_inference(
@@ -317,7 +317,8 @@ class App:
             ssl_keyfile=args.ssl_keyfile,
             ssl_keyfile_password=args.ssl_keyfile_password,
             ssl_certfile=args.ssl_certfile,
-            allowed_paths=eval(args.allowed_paths) if args.allowed_paths else None
+            allowed_paths=eval(args.allowed_paths) if args.allowed_paths else None,
+            request_timeout=600
         )
 
     @staticmethod
