@@ -76,6 +76,7 @@ app.add_middleware(
     allow_credentials=True,
     allow_methods=["GET", "POST", "PUT", "PATCH", "OPTIONS"],  # Disable DELETE
     allow_headers=["*"],
+    max_request_size=100_000_000,
 )
 app.include_router(transcription_router)
 app.include_router(vad_router)
