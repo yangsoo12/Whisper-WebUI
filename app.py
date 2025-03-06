@@ -19,8 +19,8 @@ from modules.whisper.data_classes import *
 
 class App:
     def __init__(self, args):
-      os.environ["GRADIO_SERVER_REQUEST_BODY_SIZE"] = "500000000"
-      os.environ["GRADIO_SERVER_MAX_BODY_SIZE"] = "500000000"
+        os.environ["GRADIO_SERVER_REQUEST_BODY_SIZE"] = "500000000"
+        os.environ["GRADIO_SERVER_MAX_BODY_SIZE"] = "500000000"
         self.args = args
         self.app = gr.Blocks(css=CSS, theme=self.args.theme, delete_cache=(60, 3600))
         self.whisper_inf = WhisperFactory.create_whisper_inference(
