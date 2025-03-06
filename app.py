@@ -317,8 +317,7 @@ class App:
             ssl_keyfile=args.ssl_keyfile,
             ssl_keyfile_password=args.ssl_keyfile_password,
             ssl_certfile=args.ssl_certfile,
-            allowed_paths=eval(args.allowed_paths) if args.allowed_paths else None,
-            request_timeout=600
+            allowed_paths=eval(args.allowed_paths) if args.allowed_paths else None
         )
 
     @staticmethod
